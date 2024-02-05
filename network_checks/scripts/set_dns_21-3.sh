@@ -11,12 +11,17 @@ if [ -f /etc/settings/flags/set_dns/force ]; then
 
  sudo rm /etc/settings/flags/set_dns/fail
  echo Fix resolv.conf...
+ sudo systemctl disable systemd-resolved
+ sudo systemctl stop systemd-resolved
  sudo cp -f /usr/bin/stub-resolv.conf /etc/resolv.conf
+
 elif [ -f /etc/settings/flags/set_dns/rforce ]; then
  echo Emulate fail...
  logger Emulate fail...
 
   sudo rm /etc/settings/flags/set_dns/success
+  sudo systemctl enable systemd-resolved
+  sudo systemctl start systemd-resolved
   sudo cp -f /usr/bin/stub-resolv2.conf /etc/resolv.conf
 else
  echo Testing...
@@ -35,6 +40,8 @@ else
   fi
 
   sudo rm /etc/settings/flags/set_dns/success
+  sudo systemctl enable systemd-resolved
+  sudo systemctl start systemd-resolved
   sudo cp -f /usr/bin/stub-resolv2.conf /etc/resolv.conf
  
   exit 1
@@ -61,6 +68,8 @@ else
 
  sudo rm /etc/settings/flags/set_dns/fail
  echo Fix resolv.conf...
+ sudo systemctl disable systemd-resolved
+ sudo systemctl stop systemd-resolved
  sudo cp -f /usr/bin/stub-resolv.conf /etc/resolv.conf
 
  sh /usr/bin/basic_internet_check.sh

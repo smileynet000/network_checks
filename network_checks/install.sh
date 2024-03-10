@@ -13,4 +13,9 @@ sudo chmod +x /usr/bin/set_dns-force_on.sh
 sudo chmod +x /usr/bin/set_dns-force_off.sh
 sudo chmod +x /usr/bin/set_dns-rforce_on.sh
 sudo chmod +x /usr/bin/set_dns-rforce_off.sh
+sudo chmod +x /usr/bin/set_dns-force2_on.sh
+sudo chmod +x /usr/bin/set_dns-force2_off.sh
+sudo chmod +x /usr/bin/set_dns-copy_resolv.sh
+sudo chmod +x /usr/bin/set_dns-display_resolv.sh
+sudo chmod +x /usr/bin/set_dns-display_resolv2.sh
 echo

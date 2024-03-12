@@ -12,6 +12,8 @@ if [ -f /etc/settings/flags/set_dns/force2 ]; then
  sudo systemctl disable systemd-resolved
  sudo systemctl stop systemd-resolved
  sudo cp -f /usr/bin/resolv.conf /etc/resolv.conf
+
+ exit 0
 fi
 
 if [ -f /etc/settings/flags/set_dns/force ]; then
